@@ -27,6 +27,9 @@ RUN apk --update add \
     chown -R ${LS_USER}:${LS_GROUP} ${LS_HOME}/ ${LS_CFG_BASE_DIR} &&\
     chmod 700 ${LS_CFG_SSL_DIR}
 
+# Install beats plugin
+RUN /opt/logstash/bin/logstash-plugin update logstash-input-beats
+
 # Configure environment
 COPY src/ /
 
