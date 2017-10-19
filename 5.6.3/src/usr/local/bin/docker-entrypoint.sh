@@ -71,7 +71,7 @@ processLSenv() {
 checkLSConfig() {
   # Check/validate config file
   echo "$(date +"[%F %X,000]")[INFO ][action.admin.container    ] Validating config file ${LS_CFG_FILE}"
-  ${LS_HOME}/bin/logstash agent -t -f ${LS_CFG_FILE}
+  ${LS_HOME}/bin/logstash -t -f ${LS_CFG_FILE}
   if [ $? -ne 0 ]; then
     echo "$(date +"[%F %X,000]")[WARN ][action.admin.container    ] invalid config file"
     exit 1
